@@ -2,7 +2,7 @@
 
 English | [中文](README.md)
 
-<img src="https://github.com/pdsuwwz/puppeteer-server/assets/19891724/86177762-8a97-4656-8ee0-5add61c50237" height="100" align-right />
+<img src="https://github.com/pdsuwwz/koa-playwright-server/assets/19891724/51c09e15-93dc-495a-9fc8-b70eba22a560" height="100" align-right />
 
 
 ## Introduction
