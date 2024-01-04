@@ -6,11 +6,18 @@
 
 ## 介绍
 
-🥳 Playwright 实现, 基于 Koa + TypeScript + Rollup + Nodemon + PM2 快速构建网页转换 PDF、图片的 Node.js 中间件服务
+🎭 Playwright 实现, 基于 Koa + TypeScript + Rollup + Nodemon + PM2 快速构建网页转换 PDF、图片的 Node.js 中间件服务
 
 > * 能够将任意网页快速生成为 PDF、图片。
 >
 > * 支持将多个网页合并，并最终生成一个 PDF 文件，支持 Cookies 的注入、PDF 水印的添加和页眉页脚的插入。
+
+
+## 旧的 Puppeteer 仓库
+
+如果之前使用的 Puppeteer, 可以在这里找到旧版仓库：
+
+Puppeteer 仓库: [puppeteer-server](https://github.com/pdsuwwz/puppeteer-server)
 
 ## 💎 特性
 

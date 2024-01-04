@@ -7,11 +7,17 @@ English | [中文](README.md)
 
 ## Introduction
 
-🥳 Really simple `Playwright` + `Koa` + `TypeScript` + `Rollup` + `Nodemon` + `PM2` Starter server.
+🎭 Really simple `Playwright` + `Koa` + `TypeScript` + `Rollup` + `Nodemon` + `PM2` Starter server.
 
 > * Fast Generate into PDF and images from any webpage.
 >
 > * Support `merge multiple webpages` into one PDF file, injection of `Cookies`, `Watermark` addition and `Header` and `Footer` insertion
+
+## Legacy Puppeteer Repository
+
+If you were previously using Puppeteer and are looking for the old repository, you can find it here:
+
+Puppeteer repo: [puppeteer-server](https://github.com/pdsuwwz/puppeteer-server)
 
 
 ## 💎 Features
