@@ -1,0 +1,9 @@
+{
+  "restartable": "rs",
+  "watch": ["src"],
+  "ext": "ts",
+  "exec": "pnpm watch",
+  "events": {
+    "start": "echo \"\\x1Bc\""
+  }
+}

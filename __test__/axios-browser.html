@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <code>
+    [
+      <br>
+        {
+          url: 'https://playwright.dev',
+        },
+        <br>
+        {
+          url: 'https://vitejs.dev/',
+        },
+        <br>
+        {
+          url: 'https://www.baidu.com/',
+        },
+      <br>
+    ]
+  </code>
+  <h2>正在爬取👆网站并完成合并pdf的过程，请等待几秒钟，浏览器将自动打开下载窗口</h2>
+  <h2>Please wait a few seconds for your browser to automatically open the download window</h2>
+  
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/1.5.0/axios.js"></script>
+  <script>
+    const service = axios.create({
+      baseURL: 'http://localhost:5000',
+      timeout: 60000
+    });
+    const pdfList = [
+      {
+        url: 'https://playwright.dev',
+        // 生成出来的 PDF 是否为横向
+        // Whether the generated PDF is horizontal
+        isLandscape: true,
+      },
+      {
+        url: 'https://vitejs.dev/',
+        // 如果网站需要提前内置  sessionId cookie, 一般用作需要登录才能访问的网站，则添加此字段即可
+        // If the webpage needs to have a sessionId cookie built in advance,
+        // which is generally used as a website that can only be accessed by logging in, add this field
+        cookies: [
+          {
+            name: '_ga',
+            value: 'GA1.6.52570701.7613011974',
+            domain: 'vuejs.org'
+          }
+        ],
+        // 生成出来的 PDF 是否为横向
+        // Whether the generated PDF is horizontal
+        isLandscape: true,
+        // 设置此字段为 true, 则代表生成出的 PDF 将含有内边距空白
+        // If this field is set to true, it means that the generated PDF will contain margins
+        hasMargin: false
+      },
+      {
+        url: 'https://www.baidu.com/',
+        cookies: [
+          {
+            name: 'token',
+            value: 'fc83532c-f833-11eb-8526-0242ac130002',
+            domain: 'www.baidu.com'
+          }
+        ],
+        // 展示自定义页眉页脚，前提是需要将 hasMargin 设置为 true
+        // Display the custom header and footer, provided that hasMargin is set to true
+        attachment: {
+          header: 'ABC股份有限公司 — xx阶段',
+          footer: 'BJ202312310001-AFCJ-01'
+        },
+        // 生成出来的 PDF 是否为横向
+        // Whether the generated PDF is horizontal
+        isLandscape: true,
+        // 是否隐藏水印
+        // Whether to hide watermark
+        hiddenWatermark: true,
+      },
+    ]
+    service({
+      method: 'post',
+      url: '/combine-pdf',
+      responseType: 'blob',
+      data: {
+        pdfList
+      }
+    }).then((res) => {
+      const url = window.URL.createObjectURL(res.data)
+    
+      const link = document.createElement('a')
+      link.style.display = 'none'
+      link.href = url
+      link.download = 'combine-test.pdf'
+
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    })
+  </script>
+</body>
+</html>
+
