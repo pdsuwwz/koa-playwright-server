@@ -7,7 +7,7 @@ English | [中文](README.md)
 
 ## Introduction
 
-🎭 Really simple `Playwright` + `Koa` + `TypeScript` + `Rollup` + `Nodemon` + `PM2` Starter server.
+🎭 Really simple `Playwright` + `ESM` + `Koa` + `TypeScript` + `Rollup` + `Nodemon` + `PM2` + `ESLint (v9)` Starter server.
 
 > * Fast Generate into PDF and images from any webpage.
 >
@@ -22,13 +22,15 @@ Puppeteer repo: [puppeteer-server](https://github.com/pdsuwwz/puppeteer-server)
 
 ## 💎 Features
 
+* ✅ Built-in ES Module + TypeScript environment
+
 * 🎨 Separation business logic and Controllers.
 
 * 🛡 Probably the best practice for Playwright project.
 
 * 🧩 Configured routing.
 
-* 🧺 Eslint configuration.
+* 🧺 Eslint (v9) configuration.
 
 * ⚡ Fast build with Rollup.
 
@@ -51,7 +53,7 @@ Puppeteer repo: [puppeteer-server](https://github.com/pdsuwwz/puppeteer-server)
 
 ## 🔖 Prerequisites
 
-Please make sure that [Node.js](https://nodejs.org/) (>= 16) is installed on your operating system.
+Please make sure that [Node.js](https://nodejs.org/) (>= 20.x) is installed on your operating system.
 
 ## Project structure
 
@@ -93,7 +95,9 @@ pnpm build
 * Run
 
 ```bash
-pnpm start
+pnpm start # PORT is 8080
+# or
+node dist/bundle.esm.js # PORT is 5000
 ```
 
 ## API
@@ -134,7 +138,7 @@ curl --location --request POST 'http://localhost:5000/pdf' \
 
 👆 /pdf request parameters
 
-| 字段 | 说明 | 类型 | 默认值 |
+| Field | Description | Type | Default Value |
 | -------- | -------- | -------- | -------- |
 | url | Target site url | string | — |
 | cookies | Generally used as a website that requires login to access, you can add this field | Array<{ name, value, domain }> | [] |
@@ -152,7 +156,7 @@ See [Merge Test 1](__test__/axios-browser.html), [Merge Test 2](__test__/axios-n
 
 👆 /combine-pdf request parameters
 
-| 字段 | 说明 | 类型 | 默认值 |
+| Field | Description | Type | Default Value |
 | -------- | -------- | -------- | -------- |
 | pdfList | A collection of target websites, the parameter type is an array, and each item in the array is a parameter required by `/pdf` | Array<{ pdfItem }> | [] |
 

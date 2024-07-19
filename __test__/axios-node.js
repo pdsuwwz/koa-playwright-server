@@ -1,39 +1,45 @@
-const axios = require('axios')
-const fs = require('fs')
+import axios from 'axios'
+import fs from 'fs'
+
+const PORT = 5000
+// const PORT = 8080
 
 const service = axios.create({
-  baseURL: 'http://localhost:5000'
+  baseURL: `http://localhost:${ PORT }`
 })
 
 
-service({
-  method: 'post',
-  url: '/combine-pdf',
-  responseType: 'arraybuffer',
-  data: {
+const init = () => {
+  service.post('/combine-pdf', {
     pdfList: [
       {
-        url: 'https://nuxt.com/',
+        url: 'https://nextjs.org/',
         isLandscape: true,
         attachment: {
           header: 'Header 自定义页眉',
-          footer: 'Footer 自定义页脚',
+          footer: 'Footer 自定义页脚'
         }
       },
       {
-        url: 'https://nextjs.org/',
+        url: 'https://baidu.com/',
         // hasMargin: false,
         isLandscape: true,
         cookies: [
           {
             name: 'token',
             value: 'fc83532c-f833-11eb-8526-0242ac130002',
-            domain: 'localhost'
+            domain: 'baidu.com'
           }
         ]
       }
     ]
-  }
-}).then((res) => {
-  fs.writeFileSync('combime-test-by-nodejs.pdf', res.data)
-})
+  }, {
+    responseType: 'arraybuffer'
+  }).then((res) => {
+    fs.writeFileSync('combime-test1.pdf', res.data)
+  }).catch((err) => {
+    console.log(err)
+  })
+}
+
+init()
