@@ -7,7 +7,7 @@
 
 ## 介绍
 
-🎭 Playwright 实现, 基于 Koa + TypeScript + Rollup + Nodemon + PM2 快速构建网页转换 PDF、图片的 Node.js 中间件服务
+🎭 Playwright 实现, 基于 ESM + Koa + TypeScript + Rollup + Nodemon + PM2 + ESLint (v9) 快速构建网页转换 PDF、图片的 Node.js 中间件服务
 
 > * 能够将任意网页快速生成为 PDF、图片。
 >
@@ -22,13 +22,15 @@ Puppeteer 仓库: [puppeteer-server](https://github.com/pdsuwwz/puppeteer-server
 
 ## 💎 特性
 
+* ✅ 自带 TypeScript + ES Module 环境
+
 * 🎨 解耦了业务层和控制层
 
 * 🛡 可能是 Playwright 项目的最佳实践
 
 * 🧩 可配置的路由
 
-* 🧺 内置 Eslint 语法风格检查
+* 🧺 内置 Eslint (v9) 语法风格检查
 
 * ⚡ 使用 Rollup 快速构建
 
@@ -51,7 +53,7 @@ Puppeteer 仓库: [puppeteer-server](https://github.com/pdsuwwz/puppeteer-server
 
 ## 🔖 前序准备
 
-请确保安装了 [Node.js](https://nodejs.org/)(>= 16)
+请确保安装了 [Node.js](https://nodejs.org/)(>= 20.x)
 
 
 ## 项目结构
@@ -94,7 +96,9 @@ pnpm build
 * 运行
 
 ```bash
-pnpm start
+pnpm start # 端口号为 8080
+# 或直接运行
+node dist/bundle.esm.js # 端口号为 5000
 ```
 
 ## 核心接口

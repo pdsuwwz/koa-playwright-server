@@ -17,13 +17,17 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "lib": ["dom", "esnext"],
-    "types": ["playwright", "node"],
+    "types": ["node"],
+    "typeRoots": ["playwright", "./node_modules/@types"],
     "paths": {
       "@/*": [
         "src/*"
       ]
     },
   },
+  "include": [
+    "**/*.ts",
+  ],
   "exclude": [
     "dist",
     "node_modules"

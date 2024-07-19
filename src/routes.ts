@@ -4,12 +4,22 @@ import GeneratePdfController from '@/controllers/generate-pdf'
 import GenerateSimplePdfController from '@/controllers/generate-simple-pdf'
 import GenerateCombinePdfController from '@/controllers/generate-combine-pdf'
 
+import type Router from 'koa-router'
+
+
+type HttpMethodKeys = Extract<keyof Router,
+| 'get'
+| 'post'
+| 'put'
+| 'delete'
+>
+
 interface RouteConfig {
   path: string
-  method: 'get' | 'post' | 'delete' | 'put'
-  action: (...args: any[]) => Promise<void>
+  // method: string | 'get' | 'post' | 'delete' | 'put'
+  method: HttpMethodKeys
+  action: Router.IMiddleware<any, any>
 }
-
 const routes: Array<RouteConfig> = [
   {
     path: '/',
