@@ -7,7 +7,7 @@
 
 ## 介绍
 
-🎭 Playwright 实现, 基于 ESM + Koa + TypeScript + Rollup + Nodemon + PM2 + ESLint (v9) 快速构建网页转换 PDF、图片的 Node.js 中间件服务
+🎭 Playwright 实现, 基于 ESM + Koa + TypeScript + Tsup + Nodemon + PM2 + ESLint (v9) 快速构建网页转换 PDF、图片的 Node.js 中间件服务
 
 > * 能够将任意网页快速生成为 PDF、图片。
 >
@@ -32,7 +32,7 @@ Puppeteer 仓库: [puppeteer-server](https://github.com/pdsuwwz/puppeteer-server
 
 * 🧺 内置 Eslint (v9) 语法风格检查
 
-* ⚡ 使用 Rollup 快速构建
+* ⚡ 使用 ~~Rollup~~ Tsup 快速构建
 
 * 🔌 内置了 PDF 水印、页眉和页脚，可自行修改及扩展
 
