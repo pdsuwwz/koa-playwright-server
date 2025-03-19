@@ -1,5 +1,5 @@
-import playwright from 'playwright'
 import type { RouterQuery } from '@/controllers/generate-simple-pdf'
+import playwright from 'playwright'
 
 /**
  * @example
@@ -12,10 +12,9 @@ curl --location --request GET \
 
 export default class GenerateSimplePdfService {
   generate = async (params: RouterQuery): Promise<Buffer> => {
-
     const {
       url,
-      isLandscape = '1'
+      isLandscape = '1',
     } = params
 
     const browser = await playwright.chromium.launch({
@@ -24,8 +23,8 @@ export default class GenerateSimplePdfService {
         '--disable-extensions',
         '--no-sandbox',
         '--disable-setuid-sandbox',
-        '--disable-web-security'
-      ]
+        '--disable-web-security',
+      ],
     })
 
 
@@ -35,13 +34,13 @@ export default class GenerateSimplePdfService {
     await page.setDefaultNavigationTimeout(100000)
 
     await page.goto(encodeURI(url), {
-      waitUntil: 'networkidle'
+      waitUntil: 'networkidle',
     })
 
     const buffer = await page.pdf({
       format: 'a4',
       landscape: isLandscape === '1',
-      printBackground: true
+      printBackground: true,
     })
 
     await page.close()
