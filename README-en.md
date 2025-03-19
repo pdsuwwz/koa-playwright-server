@@ -7,7 +7,7 @@ English | [中文](README.md)
 
 ## Introduction
 
-🎭 Really simple `Playwright` + `ESM` + `Koa` + `TypeScript` + `Rollup` + `Nodemon` + `PM2` + `ESLint (v9)` Starter server.
+🎭 Really simple `Playwright` + `ESM` + `Koa` + `TypeScript` + `Tsup` + `Nodemon` + `PM2` + `ESLint (v9)` Starter server.
 
 > * Fast Generate into PDF and images from any webpage.
 >
@@ -32,7 +32,7 @@ Puppeteer repo: [puppeteer-server](https://github.com/pdsuwwz/puppeteer-server)
 
 * 🧺 Eslint (v9) configuration.
 
-* ⚡ Fast build with Rollup.
+* ⚡ Fast build with ~~Rollup~~ Tsup.
 
 * 🔌 Extensible PDF watermark, header and footer.
 
